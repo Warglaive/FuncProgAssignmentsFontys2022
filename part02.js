@@ -20,9 +20,9 @@ const curriedBuildURI = scheme => domain => path => buildURI(scheme, domain, pat
 console.log(curriedBuildURI('https')('google.com')('search?q=partial%20application'));
 
 // Use the curried form of build URI and bind the scheme to 'file'
-const fileURI = undefined;
+const fileURI = curriedBuildURI('file');
 // Use to test, should produce: file://localhost/test.txt
-// console.log(fileURI('localhost')('test.txt'));
+ console.log(fileURI('localhost')('test.txt'));
 
 module.exports = {
     googleURI,
