@@ -1,5 +1,5 @@
 // Function to build a URI to a resource
-const buildURI  = (scheme, domain, path) => `${scheme}://${domain}/${path}`;
+const buildURI = (scheme, domain, path) => `${scheme}://${domain}/${path}`;
 
 // We can use the function to e.g. search on google
 //console.log(buildURI('https', 'google.com', 'search?q=partial%20application'));
@@ -10,9 +10,9 @@ const googleURI = (scheme, path) => `${scheme}://google.com/${path}`;
 console.log(googleURI('http', ''));
 
 // Now also bind the scheme to: 'https'
-const safeGoogleURI = undefined;
+const safeGoogleURI = (path) => googleURI("https", `${path}`)
 // Use to test, should produce: https://google.com/test
-// console.log(safeGoogleURI('test'));
+ console.log(safeGoogleURI('test'));
 
 // Refactor the buildURI to the curried form
 const curriedBuildURI = undefined;
