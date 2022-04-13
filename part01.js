@@ -14,7 +14,7 @@ console.log(squareAndDouble(5));
 const compose = (...fns) => args => fns.reduceRight((acc, initVal) => initVal(acc), args);
 
 // Use to compose function to compose square and double
-const composedsquareAndDouble = x => compose(double,square(x));
+const composedsquareAndDouble = x => compose(double,square)(x);
 // Use following method to test, should be: 50
 console.log(composedsquareAndDouble(5));
 
