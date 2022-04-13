@@ -11,10 +11,10 @@ console.log(squareAndDouble(5));
 // Create a higher order function that does the composition for you
 // Assume we only need to pass one argument to the first function
 // HINT: use reduceRight on fns
-const compose = (...fns) => args => fns.reduceRight((acc, initVal) => initVal(acc), acc);
+const compose = (...fns) => args => fns.reduceRight((acc, initVal) => initVal(acc), args);
 
 // Use to compose function to compose square and double
-const composedsquareAndDouble = x => compose(double(square(x)));
+const composedsquareAndDouble = x => compose(double,square(x));
 // Use following method to test, should be: 50
 console.log(composedsquareAndDouble(5));
 
