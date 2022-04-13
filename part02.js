@@ -12,12 +12,12 @@ console.log(googleURI('http', ''));
 // Now also bind the scheme to: 'https'
 const safeGoogleURI = (path) => googleURI("https", `${path}`)
 // Use to test, should produce: https://google.com/test
- console.log(safeGoogleURI('test'));
+console.log(safeGoogleURI('test'));
 
 // Refactor the buildURI to the curried form
-const curriedBuildURI = undefined;
+const curriedBuildURI = scheme => domain => path => buildURI(scheme, domain, path);
 // Use to test, should produce: https://google.com/search?q=partial%20application
-// console.log(curriedBuildURI('https')('google.com')('search?q=partial%20application'));
+console.log(curriedBuildURI('https')('google.com')('search?q=partial%20application'));
 
 // Use the curried form of build URI and bind the scheme to 'file'
 const fileURI = undefined;
