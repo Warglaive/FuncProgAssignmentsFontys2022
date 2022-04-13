@@ -5,17 +5,17 @@
  * There can never be a right side and a left side at the same time.
  */
 
- const Left = x => ({
-    flatMap: undefined,
-    emit: undefined,
-    map: undefined,
-    isLeft: undefined,
-    isRight: undefined,
+const Left = x => ({
+    flatMap: a => Left(x),
+    emit: () => x,
+    map: a => Left(x),
+    isLeft: true,
+    isRight: false,
     inspect: () => `Left(${x})`
 });
 
- const Right = x => ({
-    flatMap: undefined,
+const Right = x => ({
+    flatMap: r => r(x),
     emit: undefined,
     map: undefined,
     isLeft: undefined,
